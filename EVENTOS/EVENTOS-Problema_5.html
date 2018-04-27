@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Eventos Javascript</h2>
+
+        <input type="text" name="task" id="task">
+        <button id="btn">Add tarefa</button>
+
+        <ul>
+            <li>Ligar na tim</li>
+            <li>Ligar na net</li>
+            <li>Trocar dinheiro</li>
+            <li>fazer bolo</li>
+        </ul>
+
+        <script>
+        
+        //pega os elementos html
+        var ul = document.querySelector('ul');//tag
+        var lis = document.querySelectorAll('li'); //tag
+        var task = document.querySelector('#task'); //id
+        var btn = document.querySelector('#btn'); //id
+
+        //********* eventos para add tasks ***********
+
+        //evento no clique do botão
+        btn.addEventListener('click', addTask);
+
+        //evento no enter do input
+        task.addEventListener('keyup', function (e) {
+            if(e.keyCode === 13){
+                addTask();
+            }
+        })
+
+        //adiciona task
+        function addTask() {
+            if(task.value.length > 0){
+                var li = document.createElement('li');// cria nova li
+                var texto = document.createTextNode(task.value); //captura texto do input
+                li.appendChild(texto);//adiciona o texto do input a li
+                ul.appendChild(li); //agrega a li à ul
+                task.value = ''; //esvazia o input
+                task.focus(); //mantem o foco no input
+            }
+            
+        }
+
+        // ********* evento para remover tasks ***********
+
+        ul.addEventListener('click', function (e) {
+            if(e.target.nodeName === 'LI'){
+                if(confirm('apagar task /n' + e.target.textContent + '?')){
+                    e.target.remove(e.target);
+                }
+            }
+        })
+
+        </script>
+    </div>
+</body>
+</html>
