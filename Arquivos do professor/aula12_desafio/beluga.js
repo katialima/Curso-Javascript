@@ -12,8 +12,10 @@ function calcularMedia(){
     return (total / qtd).toFixed(2);
 }
 
-function sortear(x) {
-    
-    const sorteado = Math.random() * x;
-    return Math.floor(sorteado);    
+function sortear(n){
+    var _n = n || 1;
+    var nSorteado = Math.random();
+    nSorteado = nSorteado * _n;
+    nSorteado = Math.floor(nSorteado);
+    return nSorteado;
 }

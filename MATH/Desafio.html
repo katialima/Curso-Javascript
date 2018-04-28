@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Imagem Randômica</title>
+    <meta charset="utf-8">  
+    
+    <script>                    
+        (function () {
+            window.addEventListener('DOMContentLoaded', init);
+            
+            function init() {
+                const body = document.getElementsByTagName('body')[0];
+                const imagem = sortear(5) + 1;
+                body.style.backgroundImage = 'url(images/' + imagem + '.jpg)';                
+            }
+        })()
+    </script>
+
+</head>
+
+<body>
+    <h1>Imagem Randômica</h1>
+
+    <script src="../beluga.js"></script>
+
+</body>
+
+</html>
